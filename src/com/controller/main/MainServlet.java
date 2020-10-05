@@ -16,11 +16,10 @@ import com.service.GoodsService;
 /**
  * Servlet implementation class MainServlet
  */
-@WebServlet("/Main")
+@WebServlet("/main")
 public class MainServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("main입니다");
 		
 		GoodsService service = new GoodsService();
 		List<GoodsDTO> list = service.goodsList("top");
