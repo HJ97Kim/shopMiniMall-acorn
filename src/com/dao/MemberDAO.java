@@ -24,7 +24,7 @@ public class MemberDAO {
 	}
 	
 	public MemberDTO mypage(SqlSession session,String userid) {
-		  MemberDTO dto = session.selectOne("MemberMapper.mypage", userid);
-		  return dto;
+		  MemberDTO n = session.selectOne("MemberMapper.mypage", userid);
+		  return n;
 	   }
 }

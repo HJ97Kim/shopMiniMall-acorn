@@ -10,12 +10,12 @@
 //비번확인
 //passwd2, passwd일치확인	
 //이메일 선택
+    	
 
 
  });
 </script>    
 <%
-  //session에서 "login"으로 데이터 뽑기 
 	MemberDTO dto = (MemberDTO)session.getAttribute("login");
 	String userid = dto.getUserid();
 	String username = dto.getUsername();

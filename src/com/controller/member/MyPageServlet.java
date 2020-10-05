@@ -32,6 +32,7 @@ public class MyPageServlet extends HttpServlet {
 			MemberService service = new MemberService();
 			MemberDTO x = service.mypage(userid);
 			session.setAttribute("login", x);
+			response.sendRedirect(nextPage);
 		}
 		
 	      //세션에서 login 가져오기
