@@ -51,4 +51,19 @@ public class MemberService {
 		}
 		return dto;
 	}
+	
+	public MemberDTO mypage(String userid) {
+		SqlSession session = MySqlSessionFactory.getSession();
+		MemberDTO dto = new MemberDTO();
+		try {
+			MemberDAO dao = new MemberDAO();
+			dto = dao.mypage(session, userid);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return dto;
+	}//end idCheck
+	
 }// end class

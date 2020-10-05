@@ -4,9 +4,11 @@
 <%
 	MemberDTO dto = (MemberDTO)session.getAttribute("login");
 if(dto != null){
+	String username = dto.getUsername();
 %>
+안녕하세요.<%= username %>
 <a href="LogoutServlet">로그아웃</a>
-<a href="">mypage</a>
+<a href="MyPageServlet">mypage</a>
 <% 
 } else { 
 %>

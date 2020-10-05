@@ -22,4 +22,9 @@ public class MemberDAO {
 		MemberDTO dto = session.selectOne("MemberMapper.login", map);
 		return dto;
 	}
+	
+	public MemberDTO mypage(SqlSession session,String userid) {
+		  MemberDTO dto = session.selectOne("MemberMapper.mypage", userid);
+		  return dto;
+	   }
 }

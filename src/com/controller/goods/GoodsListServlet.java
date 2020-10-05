@@ -25,6 +25,7 @@ public class GoodsListServlet extends HttpServlet {
 		if(gCategory == null) {
 			gCategory = "top";
 		}
+		
 		GoodsService service = new GoodsService();
 		List<GoodsDTO> list = service.goodsList(gCategory);
 		
