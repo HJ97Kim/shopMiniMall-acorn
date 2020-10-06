@@ -5,6 +5,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<%
+   String mesg = (String)session.getAttribute("mesg");
+   if(mesg!=null){
+%>
+   <script type="text/javascript">
+     alert('<%=mesg%>');
+   </script>
+<%
+   }
+%>
 </head>
 <body>
 

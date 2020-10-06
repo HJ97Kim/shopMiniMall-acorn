@@ -5,16 +5,13 @@
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
-    	//form 서브밋
-//id, 패스워드공백확인
-//비번확인
-//passwd2, passwd일치확인	
-//이메일 선택
     	
+    	// 이메일 선택
     	$("#emailSelect").on("change",function(){
     		var email = $(this).val();
     		  $("#email2").val(email);
     	});
+    	
 
  });
 </script>    
@@ -37,10 +34,10 @@
 <br> 
 *이름:<%= username %>
 <br> 
-<input type="text" value="" name="post" id="sample4_postcode"  placeholder="우편번호">
+<input type="text" value="<%=post %>" name="post" id="sample4_postcode"  placeholder="우편번호">
 <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-<input type="text" value="" name="addr1" id="sample4_roadAddress" placeholder="도로명주소">
-<input type="text" value="" name="addr2" id="sample4_jibunAddress" placeholder="지번주소">
+<input type="text" value="<%=addr1 %>" name="addr1" id="sample4_roadAddress" placeholder="도로명주소">
+<input type="text" value="<%=addr2 %>" name="addr2" id="sample4_jibunAddress" placeholder="지번주소">
 <span id="guide" style="color:#999"></span>
 <br>
 전화번호:<select name="phone1">
@@ -49,11 +46,11 @@
   <option value="010" <% if("010".equals(phone1)){ %>selected<%}%>>010</option>
 
 </select>-
-<input type="text" value="" name="phone2" >
--<input type="text" value="" name="phone3" >
+<input type="text" value="<%=phone2 %>" name="phone2" >
+-<input type="text" value="<%=phone3 %>" name="phone3" >
 <br>
-이메일:<input type="text" value="" name="email1" id="email1">@
-       <input type="text" value="" name="email2" id="email2" placeholder="직접입력">
+이메일:<input type="text" value="<%=email1 %>" name="email1" id="email1">@
+       <input type="text" value="<%=email2 %>" name="email2" id="email2" placeholder="직접입력">
        <select  id="emailSelect">
         <option value="daum.net">daum.net</option>
         <option value="naver.com">naver.com</option>

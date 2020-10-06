@@ -1,6 +1,7 @@
 package com.controller.member;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -46,6 +47,7 @@ public class MemberUpdateServlet extends HttpServlet {
 
 		} else {
 			nextPage = "LoginUIServlet";
+			session.setAttribute("mesg", "로그인이 필요한 작업입니다!");
 		}
 		response.sendRedirect(nextPage);
 
