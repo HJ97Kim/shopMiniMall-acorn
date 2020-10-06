@@ -16,6 +16,6 @@ public class SendMail extends javax.mail.Authenticator {
 		System.out.println("PasswordAuthentication");
 		// 네이버나 Gmail 사용자 계정 설정.
 		// Gmail의 경우 @gmail.com을 제외한 아이디만 입력한다.
-		return new PasswordAuthentication("kimmuhi@naver.com", "k1150114");/////////////id,비밀번호 입력 
+		return new PasswordAuthentication("kimmuhi@naver.com", "12341234");/////////////id,비밀번호 입력 
 	}
 }
