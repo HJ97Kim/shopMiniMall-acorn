@@ -6,6 +6,8 @@
 <script type="text/javascript">
     $(document).ready(function(){
     	
+    	
+    	
     	// 이메일 선택
     	$("#emailSelect").on("change",function(){
     		var email = $(this).val();

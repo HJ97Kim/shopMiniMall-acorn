@@ -44,4 +44,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where userid = #{userid}
 	</update>
 	
+	<select id="idSearch" resultType="string" parameterType="MemberDTO">
+		select userid
+		from member
+		where username = #{username} and phone1 = #{phone1} and phone2 = #{phone2} and phone3 = #{phone3}
+	</select>
+	
 </mapper>
