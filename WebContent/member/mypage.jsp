@@ -11,7 +11,10 @@
 //passwd2, passwd일치확인	
 //이메일 선택
     	
-
+    	$("#emailSelect").on("change",function(){
+    		var email = $(this).val();
+    		  $("#email2").val(email);
+    	});
 
  });
 </script>    
@@ -28,7 +31,8 @@
 	String email1 = dto.getEmail1();
 	String email2 = dto.getEmail2();
 %>
-<form action="MemberAddServlet" method="get">
+<form action="MemberUpdateServlet" method="post">
+<input type="hidden" value="<%=userid%>" name="userid">
 *아이디: <%= userid %><br>
 <br> 
 *이름:<%= username %>
@@ -55,7 +59,7 @@
         <option value="naver.com">naver.com</option>
        </select>
 <br>
-<input type="submit" value="회원가입">
+<input type="submit" value="수정">
 <input type="reset" value="취소">
 </form>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>

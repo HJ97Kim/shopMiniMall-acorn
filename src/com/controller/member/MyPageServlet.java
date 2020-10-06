@@ -32,8 +32,10 @@ public class MyPageServlet extends HttpServlet {
 			MemberService service = new MemberService();
 			MemberDTO x = service.mypage(userid);
 			session.setAttribute("login", x);
-			response.sendRedirect(nextPage);
+		} else {
+			nextPage = "LoginUIServlet";
 		}
+			response.sendRedirect(nextPage);
 		
 	      //세션에서 login 가져오기
 		  //login정보가 있는 경우 service.mypage(userid)를 이용 사용자 정보
