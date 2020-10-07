@@ -7,7 +7,38 @@
 	String gName = dto.getgName();
 	int gPrice = dto.getgPrice();
 	String gImage = dto.getgImage();
+%>
+<%
+	String mesg = (String)session.getAttribute("mesg");
+	if(mesg != null) {
 %>    
+<script>
+	alert('<%=mesg%>');
+</script>
+<%
+	}
+	session.removeAttribute("mesg");
+%>
+
+<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function () {
+		
+		$("#cart").on("click", function () {
+			if($("#gSize").val() == "사이즈선택") {
+				alert("사이즈선택하세요");
+				return false;
+			}
+			if($("#gColor").val() == "색상선택") {
+				alert("색상선택하세요");
+				return false;
+			}
+			$("form").attr("action", "GoodsCartServlet");
+		});
+		
+	});
+</script>
+
 <form name="goodRetrieveForm" method="GET" action="#">
 	    <!-- hidden  tag생성 -->
 	    <input type="hidden" name="gImage" value="<%=gImage%>"> <input
@@ -103,6 +134,6 @@
 
 	<br> <button onclick="reqCheck('order')">구매</button>
 	&nbsp;&nbsp;
-	<button onclick="reqCheck('cart')">장바구니</button>
+	<button onclick="reqCheck('cart')" id="cart">장바구니</button>
 </form>
     
