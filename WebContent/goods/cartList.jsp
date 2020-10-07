@@ -3,6 +3,26 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+	$(document).ready(function () {
+		
+	
+		$("#allCheck").click(function () {
+			var result = this.checked;
+			$(".check").each(function (idx, data) {
+				this.checked = result;
+			});
+		});
+		
+		$(".delBtn").on("click", function () {
+			var num = $(this).attr("data-xxx");
+			console.log(num);
+			location.href="CartDelServlet?num="+num;
+		});
+		
+	});
+</script>
 
 <table width="90%" cellspacing="0" cellpadding="0" border="0">
 
@@ -95,16 +115,17 @@
 				id="cartAmount" style="text-align: right" maxlength="3"
 				size="2" value="<%=gAmount%>"></input></td>
 			<td><input type="button" value="수정"
-				onclick="amountUpdate('81')" /></td>
+				class="updateBtn" data-xxx="<%=num%>" data-price="<%=gPrice%>"/>
+				</td>
 			<td class="td_default" align="center" width="80"
-				style='padding-left: 5px'><span id="sum81">
+				style='padding-left: 5px'><span id="sum<%=num%>">
 				<%=gPrice * gAmount %>
 				</span></td>
 			<td><input type="button" value="주문"
 				onclick="order('81','a')"></td>
 			<td class="td_default" align="center" width="30"
 				style='padding-left: 10px'><input type="button" value="삭제"
-				onclick="delCart('81')"></td>
+				id="xx<%=i%>" class="delBtn" data-xxx="<%=num%>"></td>
 			<td height="10"></td>
 		</tr>
 <%
