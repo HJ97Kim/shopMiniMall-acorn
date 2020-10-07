@@ -1,5 +1,7 @@
 package com.service;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.config.MySqlSessionFactory;
@@ -19,6 +21,20 @@ public class CartService {
 			session.close();
 		}
 		return n;
+	}
+
+	public List<CartDTO> cartList(String userid) {
+		SqlSession session = MySqlSessionFactory.getSession();
+		List<CartDTO> list = null;
+		try {
+			CartDAO dao = new CartDAO();
+			list = dao.cartList(session, userid);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return list;
 	}
 
 }// end class
