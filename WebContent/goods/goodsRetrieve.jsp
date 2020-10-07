@@ -36,6 +36,16 @@
 			$("form").attr("action", "GoodsCartServlet");
 		});
 		
+		$("#up").click(function () {
+			$("#gAmount").val(parseInt($("#gAmount").val())+1);
+		});
+		
+		$("#down").click(function () {
+			if($("#gAmount").val() > 0){
+			$("#gAmount").val(parseInt($("#gAmount").val())-1);
+			}
+		});
+		
 	});
 </script>
 
