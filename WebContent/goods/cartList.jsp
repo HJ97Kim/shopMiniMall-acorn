@@ -21,6 +21,31 @@
 			location.href="CartDelServlet?num="+num;
 		});
 		
+		$(".updateBtn").on("click", function () {
+			var num = $(this).attr("data-xxx");
+			var gAmount = $("#cartAmount"+num).val();
+			var gPrice = $(this).attr("data-price");
+			$.ajax({
+				url:'CartUpdateServlet',
+				type:'get',
+				dataType:'text',
+				data:{
+					num:num,
+					gAmount:gAmount
+				},
+				success:function(data, status, xhr) {
+					var sum = gAmount * gPrice;
+					$("#sum"+num).text(sum);
+				},
+				error:function(xhr, status, error) {
+					
+				}
+			});
+		
+		});
+		
+		
+		
 	});
 </script>
 
@@ -112,7 +137,7 @@
 			</td>
 			<td class="td_default" align="center" width="90"><input
 				class="input_default" type="text" name="cartAmount"
-				id="cartAmount" style="text-align: right" maxlength="3"
+				id="cartAmount<%=num%>" style="text-align: right" maxlength="3"
 				size="2" value="<%=gAmount%>"></input></td>
 			<td><input type="button" value="수정"
 				class="updateBtn" data-xxx="<%=num%>" data-price="<%=gPrice%>"/>
