@@ -38,4 +38,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</foreach>
 	</delete>
 	
+	<select id="cartbyNum" parameterType="string" resultType="CartDTO">
+		select num, userid, gCode, gPrice, gSize, gColor, gAmount, gName, gImage
+		from cart
+		where num = #{num}
+	</select>
+	
+	<insert id="orderDone" parameterType="OrderDTO" >
+ 	insert into orderInfo (num, userid, gCode, gName, gPrice, gSize, gColor, gAmount,
+ 												 gImage, orderName, post, addr1, addr2, phone, payMethod)
+ 												 
+ 	values(orderInfo seq.nextval, #{userid}, #{gCode}, #{gName}, #{gPrice}, #{gSize}, #{gColor},
+ 					#{gAmount}, #{gImage}, #{orderName}, #{post}, #{addr1}, #{addr2}, #{phone}, #{payMethod})
+   </insert>
+	
 </mapper>

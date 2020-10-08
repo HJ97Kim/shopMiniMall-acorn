@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import com.config.MySqlSessionFactory;
 import com.dao.CartDAO;
 import com.dto.CartDTO;
+import com.dto.OrderDTO;
 
 public class CartService {
 
@@ -76,5 +77,36 @@ public class CartService {
 		}
 		return n;
 	}
+
+	public CartDTO cartbyNum(String num) {
+		SqlSession session = MySqlSessionFactory.getSession();
+		CartDTO list = null;
+		try {
+			CartDAO dao = new CartDAO();
+			list = dao.cartbyNum(session, num);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return list;
+	}
+
+	public int orderDone(OrderDTO dto, String orderNum) {
+		SqlSession session = MySqlSessionFactory.getSession();
+		int n = 0;
+		try {
+			CartDAO dao = new CartDAO();
+			n = dao.orderDone(session, dto); // order테이블에 추가
+			n = dao.cartDel(session, Integer.parseInt(orderNum)); // cart테이블에서 삭제
+			session.commit(); // 두작업 완료 후 커밋
+		} catch (Exception e) {
+			session.rollback(); //tx 처리 롤백
+		} finally {
+			session.close();
+		}
+		return n;
+	}
+
 
 }// end class

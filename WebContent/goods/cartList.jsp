@@ -59,6 +59,11 @@
 			$("form").submit(); // trigger
 		});
 		
+		$(".orderBtn").on("click", function () {
+			var num = $(this).attr("data-xxx");
+			location.href="CartOrderConfirmServlet?num="+num;
+		})
+		
 		
 	});
 </script>
@@ -160,8 +165,7 @@
 				style='padding-left: 5px'><span id="sum<%=num%>">
 				<%=gPrice * gAmount %>
 				</span></td>
-			<td><input type="button" value="주문"
-				onclick="order('81','a')"></td>
+			<td><input type="button" value="주문" class="orderBtn" data-xxx="<%=num%>"></td>
 			<td class="td_default" align="center" width="30"
 				style='padding-left: 10px'><input type="button" value="삭제"
 				id="xx<%=i%>" class="delBtn" data-xxx="<%=num%>"></td>
