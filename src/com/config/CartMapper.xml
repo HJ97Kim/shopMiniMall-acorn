@@ -29,4 +29,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		num = #{num}
 	</update>
 	
+	<delete id="cartAllDel" parameterType="arraylist">
+		delete from cart
+		where num
+		IN
+		<foreach collection="list" item="item" open="(" separator="," close=")">
+			#{item}
+		</foreach>
+	</delete>
+	
 </mapper>

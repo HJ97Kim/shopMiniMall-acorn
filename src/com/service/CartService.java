@@ -64,4 +64,17 @@ public class CartService {
 		return n;
 	}
 
+	public int cartAllDel(List<String> list) {
+		SqlSession session = MySqlSessionFactory.getSession();
+		int n = 0;
+		try {
+			CartDAO dao = new CartDAO();
+			n = dao.cartAllDel(session, list);
+			session.commit();
+		} finally {
+			session.close();
+		}
+		return n;
+	}
+
 }// end class

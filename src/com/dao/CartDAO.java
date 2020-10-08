@@ -29,4 +29,9 @@ public class CartDAO {
 		return n;
 	}
 
+	public int cartAllDel(SqlSession session, List<String> list) {
+		int n = session.delete("CartMapper.cartAllDel", list);
+		return n;
+	}
+
 }
