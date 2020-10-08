@@ -54,7 +54,7 @@
 		});
 		
 		// 전체삭제2
-		$("#dellAllCart2").on("click", function () {
+		$("#delAllCart2").on("click", function () {
 			$("form").attr("action", "CartDelAllServlet2");
 			$("form").submit(); // trigger
 		});
