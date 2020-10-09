@@ -157,7 +157,7 @@ String gImage = cDTO.getgImage();
 					</td>
 					<td height="35" class="td_default">
 						<input class="input_default" type="text" id="mname" size="20"
-							maxlength="20" value=""></input>
+							maxlength="20" value="<%=username%>"></input>
 					</td>
 				</tr>
 				<tr>
@@ -167,7 +167,7 @@ String gImage = cDTO.getgImage();
 					</td>
 					<td height="35" class="td_default">
 						<input class="input_default" type="text" id="mpost" size="6"
-							maxlength="6" value="" readonly>
+							maxlength="6" value="<%=post%>" readonly>
 						
 					</td>
 				</tr>
@@ -190,7 +190,7 @@ String gImage = cDTO.getgImage();
 					</td>
 					<td height="35" class="td_default">
 						<input class="input_default" type="text" id="mphone" size="15"
-							maxlength="15" value=""></input>
+							maxlength="15" value="<%=phone1%><%=phone2%><%=phone3%>"></input>
 						
 					</td>
 				</tr>
@@ -289,11 +289,11 @@ String gImage = cDTO.getgImage();
 					style="border-collapse:collapse" bordercolor="#CCCCCC">
 				<tr>
 					<td width="125" height="35" class="td_default">
-						<input type="radio" name="payMethod" value="신용카드" checked>신용카드</input>
+						<input type="radio" name="payMethod" value="신용" checked>신용카드</input>
 						
-						<input type="radio" name="payMethod" value="계좌이체">계좌이체</input>
+						<input type="radio" name="payMethod" value="계좌">계좌이체</input>
 						
-						<input type="radio" name="payMethod" value="무통장 입금">무통장 입금</input>
+						<input type="radio" name="payMethod" value="무통장">무통장 입금</input>
 					</td>
 					
 				</tr>

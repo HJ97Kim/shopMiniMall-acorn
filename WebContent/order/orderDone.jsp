@@ -71,18 +71,18 @@ $(document).ready(function(){
 				bordercolor="#CCCCCC">
 				<tr>
 					<td class="td_default" width="150" height="35"> 받으시는 분</td>
-					<td class="td_default" height="35"> </td>
+					<td class="td_default" height="35"><%=orderName %> </td>
 				</tr>
 				<tr>
 					<td class="td_default" height="35"> 주소</td>
-					<td class="td_default" height="35"> ()<br>
+					<td class="td_default" height="35"><%=post%> <%=addr1%> (<%=addr2%>)<br>
 						&nbsp;
 					</td>
 				</tr>
 				
 				<tr>
 					<td class="td_default" height="35"> 휴대전화</td>
-					<td class="td_default" height="35"> </td>
+					<td class="td_default" height="35"><%=phone%> </td>
 				</tr>
 			</table>
 	</tr>
@@ -107,16 +107,16 @@ $(document).ready(function(){
 				
 				<tr>
 					<td height="35" class="td_default">
-						<span class="a_default"></span>
+						<span class="a_default"><%=gName%></span>
 					</td>
 					<td height="35" class="td_default" align="center">
-						<span  id = "price1"></span>원
+						<span  id = "price1"><%=gPrice%></span>원
 					</td>
 					<td height="35" class="td_default" align="center">
-						<span id = "num1"></span>권
+						<span id = "num1"><%=gAmount%></span>개
 					</td>
 					<td height="35" class="td_default" align="center">
-						<span></span>원
+						<span><%=gPrice * gAmount%></span>원
 					</td>
 				</tr>
 				
@@ -145,13 +145,13 @@ $(document).ready(function(){
 				<tr>
 					<td class="td_default" width="150" height="35"> 결제금액</td>
 					<td class="td_default" height="35" align = 'right'> 
-					<input type = 'text' id = 'total' value = '' readonly>원
+					<input type = 'text' id = 'total' value = '<%=gPrice * gAmount%>' readonly>원
 					</td>
 				</tr>
 				<tr>
 					<td class="td_default" width="150" height="35"> 결제수단</td>
 					<td class="td_default" height="35" align = 'right'> 
-					<span></span>
+					<span><%=payMetString%></span>
 					</td>
 				</tr>
 			</table>

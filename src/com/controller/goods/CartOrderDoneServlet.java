@@ -52,7 +52,6 @@ public class CartOrderDoneServlet extends HttpServlet {
 
 			OrderDTO dto2 = new OrderDTO(0, userid, gCode, gName, Integer.parseInt(gPrice), gSize, gColor,
 					Integer.parseInt(gAmount), gImage, orderName, post, addr1, addr2, phone, payMethod, null);
-
 			CartService cService = new CartService();
 			int n = cService.orderDone(dto2, orderNum);
 

@@ -101,6 +101,7 @@ public class CartService {
 			n = dao.cartDel(session, Integer.parseInt(orderNum)); // cart테이블에서 삭제
 			session.commit(); // 두작업 완료 후 커밋
 		} catch (Exception e) {
+			e.printStackTrace();
 			session.rollback(); //tx 처리 롤백
 		} finally {
 			session.close();
